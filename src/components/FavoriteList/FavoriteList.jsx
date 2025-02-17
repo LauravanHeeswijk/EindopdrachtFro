@@ -1,28 +1,25 @@
+import React from 'react';
 import { useData } from "../../context/DataContext.jsx";
 
-function FavoritesList() {
+const FavoriteList = () => {
     const { favorites } = useData();
 
-    console.log("Favorites array:", favorites); // Debug log
+    if (favorites.length === 0) {
+        return <p> Je hebt nog geen favoriete grap! </p>
+    }
 
     return (
         <div>
-            <h2>Favoriete Grappen</h2>
-            {favorites?.length === 0 ? (
-                <p>Je hebt nog geen favoriete grappen.</p>
-            ) : (
-                <ul>
-                    {favorites.map((joke, index) => {
-                        console.log("Joke object:", joke); // Debug log
-                        return <li key={index}>
-                            {typeof joke === "string" ? joke : joke?.text || "Onbekende grap"}
-                        </li>;
-                    })}
-                </ul>
-            )}
+            <H2>Favorieten grappen!</H2>
+            <ul>
+                {favorites.map((joke) => (
+                    <li key={joke.id}>
+                        {joke.setup} - {joke.punchline}
+                    </li>
+                ))}
+            </ul>
         </div>
     );
-}
+};
 
-export default FavoritesList;
-
+export default FavoriteList;

@@ -9,11 +9,8 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage.jsx";
 import Header from "./components/Header/Header.jsx";
 import { DataProvider } from "./context/DataContext.jsx";
-import FavoriteList from "./components/FavoriteList/FavoriteList";
-// import { useData } from "../../context/DataContext.jsx";
-
-
-// import JokeDisplay from "./components/JokeDisplay/JokeDisplay";
+import FavoriteList from "./components/FavoriteList/FavoriteList.jsx";
+import "./components/LoadingSpinner/LoadingSpinner.css";
 
 const App = () => {
     return (
@@ -34,7 +31,7 @@ const AppContent = () => {
             <Routes>
                 <Route path="/" element={<>
                     <HomePage/>
-                    <JokeDisplay />
+                    {/*<JokeDisplay />*/}
                 </>}/>
                 <Route path="/new-dadjoke" element={<NewDadJokePage/>}/>
                 <Route path="/my-dadjokes" element={<>

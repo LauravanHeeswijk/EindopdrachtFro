@@ -7,11 +7,9 @@ export async function fetchJoke() {
                 Accept: "application/json",
             },
         });
-
         if (!response.ok) {
             throw new Error(`Fout bij het ophalen van de grap: ${response.status} ${response.statusText}`);
         }
-
         const data = await response.json();
         return data.joke;
     } catch (error) {
@@ -19,3 +17,5 @@ export async function fetchJoke() {
         return "Waarom kunnen skeletten niet liegen? Ze hebben geen ruggengraat!";
     }
 }
+fetchJoke().then(joke => console.log("Joke:", joke));
+
