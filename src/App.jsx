@@ -41,7 +41,7 @@ const AppContent = () => {
                 <Route path="/my-profile" element={<MyProfilePage/>}/>
                 <Route path="/login-registration" element={<LoginRegistrationPage/>}/>
                 <Route path="/registration" element={<RegistrationPage/>}/>
-                <Route path="/login" element={<LoginPage/>}/>
+                <Route path="/login" element={<LoginPage />} />
             </Routes>
         </>
     );

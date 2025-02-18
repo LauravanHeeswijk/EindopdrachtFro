@@ -6,8 +6,6 @@ const COOLDOWN_TIME = 10000; //Deze COOLDOWN_TIME had ik nodig vanwege een 429 m
 let lastFetchTime = 0;
 let isCooldownActive = false;
 
-
-
 export function DataProvider({ children }) {
     const [joke, setJoke] = useState(null);
     const [favorites, setFavorites] = useState([]);
