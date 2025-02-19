@@ -19,7 +19,10 @@ const RegistrationPage = () => {
             setError("Wachtwoorden komen niet overeen.");
             return;
         }
-
+        if (password .length < 6) {
+            setError("Wachtwoord moet minimaal 6 tekens zijn!");
+            return;
+        }
         try {
             const response = await fetch(`${apiUrl}/users/register`, {
                 method: "POST",
