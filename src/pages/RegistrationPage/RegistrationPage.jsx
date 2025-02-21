@@ -23,6 +23,10 @@ const RegistrationPage = () => {
             setError("Wachtwoord moet minimaal 6 tekens zijn!");
             return;
         }
+        if (password !== confirmPassword) {
+            setError("wachtwoord komt niet overeen.");
+            return;
+        }
         try {
             const response = await fetch(`${apiUrl}/users/register`, {
                 method: "POST",
@@ -41,7 +45,7 @@ const RegistrationPage = () => {
                 throw new Error("Registratie mislukt");
             }
 
-            navigate("/login"); // ✅ Correcte navigatie
+            navigate("/login");
         } catch (error) {
             console.error("Fout bij registreren:", error.message);
             setError("Registratie mislukt, probeer opnieuw.");
