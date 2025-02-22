@@ -7,23 +7,28 @@ const RegistrationPage = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const apiUrl = import.meta.env.VITE_API_URL;
-    const noviApiKey = import.meta.env.VITE_NOVI_API_KEY;
-
-    console.log("Full API request URL:", `${apiUrl}/users`);
+    const apiKey = import.meta.env.VITE_NOVI_API_KEY;
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (isSubmitting) return;
+        setIsSubmitting(true);
+
+        console.log("API wordt aangeroepen:", `${apiUrl}/users`);
         setError(null);
+
 
         if (password !== confirmPassword) {
             setError("Wachtwoorden komen niet overeen.");
             return;
         }
-        if (password.length < 6) {
-            setError("Wachtwoord moet minimaal 6 tekens zijn!");
+        if (password.length <8) {
+            setError("Wachtwoord moet minimaal 8 tekens zijn!");
             return;
         }
         try {
@@ -42,12 +47,26 @@ const RegistrationPage = () => {
                 }),
             });
 
+            const text = await response.text();
+            let responseData;
 
-            if (!response.ok) {
-                throw new Error("Registratie mislukt");
+            try {
+                responseData = JSON.parse(text);
+            } catch {
+                responseData = text;
+            }
+            console.log("Server response:", responseData);
+
+            if (response.ok && responseData.id) {
+                console.log("Registratie succesvol! Doorsturen naar login...");
+                navigate("/login");
+            } else {
+                throw new Error(responseData.message || "Registratie mislukt");
             }
 
+
             navigate("/login");
+
         } catch (error) {
             console.error("Fout bij registreren:", error.message);
             setError("Registratie mislukt, probeer opnieuw.");
