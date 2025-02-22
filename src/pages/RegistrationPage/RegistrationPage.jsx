@@ -6,10 +6,13 @@ const RegistrationPage = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
-    const navigate = useNavigate(); // ✅ Correct gebruik van useNavigate
+    const navigate = useNavigate();
 
-    const apiKey = import.meta.env.VITE_API_KEY;
     const apiUrl = import.meta.env.VITE_API_URL;
+    const noviApiKey = import.meta.env.VITE_NOVI_API_KEY;
+
+    console.log("Full API request URL:", `${apiUrl}/users`);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,27 +22,26 @@ const RegistrationPage = () => {
             setError("Wachtwoorden komen niet overeen.");
             return;
         }
-        if (password .length < 6) {
+        if (password.length < 6) {
             setError("Wachtwoord moet minimaal 6 tekens zijn!");
             return;
         }
-        if (password !== confirmPassword) {
-            setError("wachtwoord komt niet overeen.");
-            return;
-        }
         try {
-            const response = await fetch(`${apiUrl}/users/register`, {
+            const response = await fetch("https://api.datavortex.nl/dadjokes/users", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
-                    "X-Api-Key": apiKey,
+                    "X-Api-Key": "dadjokes:aBLlxn4edeE0muKsp9fj",
                 },
                 body: JSON.stringify({
+                    username: email,
                     email: email,
                     password: password,
+                    authorities: [{ authority: "USER" }],
                 }),
             });
+
 
             if (!response.ok) {
                 throw new Error("Registratie mislukt");
