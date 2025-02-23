@@ -14,12 +14,14 @@ const LoginPage = () => {
         setError(null);
 
         try {
+            console.log("API Key:", apiKey);
+            console.log("API URL:", apiUrl);
             const response = await fetch("https://api.datavortex.nl/dadjokes/users/authenticate", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
-                    "X-Api-Key": apiKey,
+                    "X-Api-Key": "dadjokes:aBLlxn4edeE0muKsp9fj"
                 },
                 body: JSON.stringify({
                     username: email,
@@ -35,7 +37,7 @@ const LoginPage = () => {
             console.log("JWT-token:", data.token);
 
             localStorage.setItem("token", data.token);
-            navigate("/homepage"); // Corrigeer de navigatie
+            navigate("/homepage");
         } catch (error) {
             console.error("Fout bij inloggen:", error.message);
             setError("Inloggen mislukt, probeer opnieuw.");

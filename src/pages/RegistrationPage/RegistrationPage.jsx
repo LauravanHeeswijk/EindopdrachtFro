@@ -63,8 +63,6 @@ const RegistrationPage = () => {
             } else {
                 throw new Error(responseData.message || "Registratie mislukt");
             }
-
-
             navigate("/login");
 
         } catch (error) {
