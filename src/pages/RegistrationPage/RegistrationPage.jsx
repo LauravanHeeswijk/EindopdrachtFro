@@ -12,6 +12,8 @@ const RegistrationPage = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
     const apiKey = import.meta.env.VITE_NOVI_API_KEY;
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,7 +24,10 @@ const RegistrationPage = () => {
         console.log("API wordt aangeroepen:", `${apiUrl}/users`);
         setError(null);
 
-
+        if (!emailRegex.test(email)) {
+            setError("Voer een geldig e-mailadres in.");
+            return;
+        }
         if (password !== confirmPassword) {
             setError("Wachtwoorden komen niet overeen.");
             return;

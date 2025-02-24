@@ -14,14 +14,15 @@ const LoginPage = () => {
         setError(null);
 
         try {
-            console.log("API Key:", apiKey);
-            console.log("API URL:", apiUrl);
-            const response = await fetch("https://api.datavortex.nl/dadjokes/users/authenticate", {
+            console.log("API Key:", import.meta.env.VITE_API_KEY);
+            console.log("API URL:", import.meta.env.VITE_API_URL);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/users/authenticate`, {
+
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
-                    "X-Api-Key": "dadjokes:aBLlxn4edeE0muKsp9fj"
+                    // "X-Api-Key": "dadjokes:aBLlxn4edeE0muKsp9fj"
                 },
                 body: JSON.stringify({
                     username: email,
