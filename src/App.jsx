@@ -11,6 +11,7 @@ import Header from "./components/Header/Header.jsx";
 import { DataProvider } from "./context/DataContext.jsx";
 import FavoriteList from "./components/FavoriteList/FavoriteList.jsx";
 import "./components/LoadingSpinner/LoadingSpinner.css";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 
 const App = () => {
     return (
@@ -29,23 +30,22 @@ const AppContent = () => {
             {!noHeaderRoutes.includes(location.pathname) && <Header/>}
 
             <Routes>
-                <Route path="/" element={<>
-                    <HomePage/>
-                    {/*<JokeDisplay />*/}
-                </>}/>
-                <Route path="/new-dadjoke" element={<NewDadJokePage/>}/>
-                <Route path="/my-dadjokes" element={<>
-                    <MyDadJokesPage/>
-                    <FavoriteList/>
-                </>}/>
-                <Route path="/my-profile" element={<MyProfilePage/>}/>
-                <Route path="/login-registration" element={<LoginRegistrationPage/>}/>
-                <Route path="/registration" element={<RegistrationPage/>}/>
+                {/* Openbare routes */}
+                <Route path="/" element={<HomePage />} />
+                <Route path="/login-registration" element={<LoginRegistrationPage />} />
+                <Route path="/registration" element={<RegistrationPage />} />
                 <Route path="/login" element={<LoginPage />} />
+
+                {/*Beveiligde routes*/}
+                <Route element={<PrivateRoute />}>
+                    <Route path="/new-dadjoke" element={<NewDadJokePage />} />
+                    <Route path="/my-dadjokes" element={<MyDadJokesPage />} />
+                    <Route path="/my-profile" element={<MyProfilePage />} />
+                    <Route path="/favorites" element={<FavoriteList />} />
+                </Route>
             </Routes>
         </>
     );
 };
 
 export default App;
-
