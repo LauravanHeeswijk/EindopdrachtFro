@@ -32,8 +32,8 @@ const RegistrationPage = () => {
             setError("Wachtwoorden komen niet overeen.");
             return;
         }
-        if (password.length <8 || !/[!@#$%^&*(),.?":|<>]/.test(email)) {
-            setError("Wachtwoord moet minimaal 8 tekens zijn en 1 leesteken bevatten!");
+        if (password.length <8 ) {
+            setError("Wachtwoord moet minimaal 8 tekens bevatten!");
             return;
         }
         try {

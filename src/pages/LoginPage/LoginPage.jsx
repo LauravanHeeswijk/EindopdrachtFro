@@ -22,7 +22,7 @@ const LoginPage = () => {
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
-                    // "X-Api-Key": "dadjokes:aBLlxn4edeE0muKsp9fj"
+                    "X-Api-Key": "dadjokes:aBLlxn4edeE0muKsp9fj"
                 },
                 body: JSON.stringify({
                     username: email,
