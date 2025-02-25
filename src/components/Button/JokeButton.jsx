@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
+import React from "react";
 
-const JokeButton = () => {
-    const [joke, setJoke] = useState(null);
-
+const JokeButton = ({ setJoke }) => {
     const fetchJoke = async () => {
         try {
             const response = await fetch("https://icanhazdadjoke.com/", {
@@ -16,12 +14,7 @@ const JokeButton = () => {
         }
     };
 
-    return (
-        <div>
-            <p>{joke || "Laden..."}</p>
-            <button onClick={fetchJoke}>New Dad Joke</button>
-        </div>
-    );
+    return <button onClick={fetchJoke}>Nieuwe grap</button>;
 };
 
 export default JokeButton;

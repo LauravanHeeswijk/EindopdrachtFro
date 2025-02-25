@@ -1,22 +1,18 @@
-import React from "react";
+import { useState } from "react";
 import JokeButton from "../../components/Button/JokeButton";
 import FavoriteJokeButton from "../../components/Button/FavoriteJokeButton";
-import StupidJokeButton from "../../components/Button/StupidJokeButton";
 
+const NewDadJokePage = () => {
+    const [joke, setJoke] = useState(null);
 
-const NewDadJokesPage = () => {
     return (
         <div>
             <h1>New Dad Joke</h1>
-            {/* Hier komen straks de componenten */}
-                <JokeButton />
-
-        {/*    /!* Knoppen voor interactie *!/*/}
-            <div className="button-group">
-                <FavoriteJokeButton />
-                <StupidJokeButton />
-            </div>
+            <JokeButton setJoke={setJoke} />
+            {joke && <p>{joke}</p>}
+            <FavoriteJokeButton joke={joke} />
         </div>
     );
 };
-export default NewDadJokesPage;
+
+export default NewDadJokePage;
