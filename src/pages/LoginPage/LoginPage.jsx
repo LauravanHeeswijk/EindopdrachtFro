@@ -1,47 +1,48 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const LoginPage = () => {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState(""); // Username, want API verwacht geen email
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+
     const navigate = useNavigate();
-    const apiKey = import.meta.env.VITE_API_KEY;
     const apiUrl = import.meta.env.VITE_API_URL;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(null);
+        setError("");
 
         try {
-            console.log("API Key:", import.meta.env.VITE_API_KEY);
-            console.log("API URL:", import.meta.env.VITE_API_URL);
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/users/authenticate`, {
+            console.log("API URL:", apiUrl);
 
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                    "X-Api-Key": "dadjokes:aBLlxn4edeE0muKsp9fj"
-                },
-                body: JSON.stringify({
-                    username: email,
-                    password: password,
-                }),
-            });
+            const response = await axios.post(
+                `${apiUrl}/users/authenticate`,
+                { username, password },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                    },
+                }
+            );
 
-            if (!response.ok) {
-                throw new Error("Login mislukt");
+            console.log("API-response ontvangen:", response.data);
+
+            const token = response.data?.jwt;
+            if (!token) {
+                throw new Error("Geen token ontvangen van de server.");
             }
 
-            const data = await response.json();
-            console.log("JWT-token:", data.token);
+            console.log("JWT-token ontvangen:", token);
 
-            localStorage.setItem("token", data.token);
+            localStorage.setItem("token", token);
+
             navigate("/homepage");
         } catch (error) {
-            console.error("Fout bij inloggen:", error.message);
-            setError("Inloggen mislukt, probeer opnieuw.");
+            console.error("Fout bij inloggen:", error.response ? error.response.data : error.message);
+            setError("Inloggen mislukt, controleer je gegevens en probeer opnieuw.");
         }
     };
 
@@ -50,10 +51,10 @@ const LoginPage = () => {
             <h1>Login Page 🚀</h1>
             <form onSubmit={handleSubmit}>
                 <input
-                    type="email"
-                    placeholder="E-mail"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    type="text"
+                    placeholder="Gebruikersnaam"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
                     type="password"

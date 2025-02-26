@@ -10,7 +10,6 @@ const Header = () => {
         navigate("/login");
 
     };
-
         return (
         <header className="Header">
             <nav className= "nav">
