@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const LoginPage = () => {
-    const [username, setUsername] = useState(""); // Username, want API verwacht geen email
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
@@ -15,47 +15,42 @@ const LoginPage = () => {
         setError("");
 
         try {
-            console.log("API URL:", apiUrl);
+            const response = await axios.post(`${apiUrl}/users/authenticate`, {
+                username: email,
+                password: password,
+            });
 
-            const response = await axios.post(
-                `${apiUrl}/users/authenticate`,
-                { username, password },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json",
-                    },
-                }
-            );
+            const token = response.data.jwt;
+            const username = email;
 
-            console.log("API-response ontvangen:", response.data);
 
-            const token = response.data?.jwt;
-            if (!token) {
-                throw new Error("Geen token ontvangen van de server.");
+            if (!token || !username) {
+                throw new Error("Geen token of username ontvangen van de server.");
             }
 
-            console.log("JWT-token ontvangen:", token);
-
             localStorage.setItem("token", token);
+            localStorage.setItem("username", username);
+            console.log("Ingelogd als:", username);
 
             navigate("/homepage");
         } catch (error) {
-            console.error("Fout bij inloggen:", error.response ? error.response.data : error.message);
+            console.error("Fout bij inloggen:", error.response?.data || error.message);
             setError("Inloggen mislukt, controleer je gegevens en probeer opnieuw.");
         }
     };
 
     return (
         <div>
-            <h1>Login Page 🚀</h1>
+            <h1>Login 🚀</h1>
             <form onSubmit={handleSubmit}>
+
                 <input
-                    type="text"
-                    placeholder="Gebruikersnaam"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    type="email"
+                    placeholder="E-mail"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
+
                 <input
                     type="password"
                     placeholder="Wachtwoord"
@@ -63,6 +58,7 @@ const LoginPage = () => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <button type="submit">Login</button>
+
             </form>
             {error && <p style={{ color: "red" }}>{error}</p>}
         </div>

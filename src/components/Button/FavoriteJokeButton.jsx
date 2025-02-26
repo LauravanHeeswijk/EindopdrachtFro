@@ -2,29 +2,46 @@ import React from "react";
 import axios from "axios";
 
 const FavoriteJokeButton = ({ joke }) => {
-    const apiKey = import.meta.env.VITE_API_KEY;
     const apiUrl = import.meta.env.VITE_API_URL;
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("username");
 
     const saveFavoriteJoke = async () => {
         if (!joke) {
-            console.error("Geen grap om op te slaan!");
+            alert("Geen grap om op te slaan!");
             return;
         }
+
+        if (!token || !username) {
+            alert("Log eerst in om favorieten op te slaan.");
+            return;
+        }
+
         try {
-            const response = await axios.post(`${apiUrl}/favorieten`,
-                { joke },
+            console.log("Huidige favorieten ophalen...");
+            const response = await axios.get(`${apiUrl}/users/${username}/info`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+
+            const huidigeFavorieten = response.data.info || "";
+            const nieuweFavorieten = huidigeFavorieten ? `${huidigeFavorieten}\n${joke}` : joke;
+
+            console.log("Favoriet opslaan...");
+            await axios.put(
+                `${apiUrl}/users/${username}`,
+                { info: nieuweFavorieten },
                 {
                     headers: {
+                        Authorization: `Bearer ${token}`,
                         "Content-Type": "application/json",
-                        "X-Api-Key": apiKey,
                     },
                 }
             );
 
-
-            console.log("Grap opgeslagen als favoriet!", response.data);
+            alert("Grap toegevoegd aan favorieten!");
         } catch (error) {
-            console.error("Fout bij opslaan in favorieten:", error);
+            console.error("Fout bij opslaan:", error.response?.data || error.message);
+            alert("Er ging iets mis. Probeer opnieuw.");
         }
     };
 
@@ -32,3 +49,4 @@ const FavoriteJokeButton = ({ joke }) => {
 };
 
 export default FavoriteJokeButton;
+

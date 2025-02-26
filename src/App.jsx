@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import HomePage from "./pages/HomePage/HomePage";
 import NewDadJokePage from './pages/NewDadJokePage/NewDadJokesPage.jsx';
-import MyDadJokesPage from './pages/MyDadJokesPage/MyDadJokesPage.jsx';
+import MyDadJokesPage from './pages/MyDadJokes.jsx/MyDadJokes.jsx';
 import MyProfilePage from './pages/MyProfilePage/MyProfilePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage.jsx";

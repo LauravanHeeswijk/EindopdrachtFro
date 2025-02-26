@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const RegistrationPage = () => {
     const [email, setEmail] = useState("");
@@ -7,78 +8,55 @@ const RegistrationPage = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const apiUrl = import.meta.env.VITE_API_URL;
     const apiKey = import.meta.env.VITE_NOVI_API_KEY;
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError("");
 
-        if (isSubmitting) return;
-        setIsSubmitting(true);
-
-        console.log("API wordt aangeroepen:", `${apiUrl}/users`);
-        setError(null);
-
-        if (!emailRegex.test(email)) {
+        if (!email.includes("@") || !email.includes(".")) {
             setError("Voer een geldig e-mailadres in.");
+            return;
+        }
+        if (password.length < 8) {
+            setError("Wachtwoord moet minimaal 8 tekens hebben.");
             return;
         }
         if (password !== confirmPassword) {
             setError("Wachtwoorden komen niet overeen.");
             return;
         }
-        if (password.length <8 ) {
-            setError("Wachtwoord moet minimaal 8 tekens bevatten!");
-            return;
-        }
+
         try {
-            const response = await fetch("https://api.datavortex.nl/dadjokes/users", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                    "X-Api-Key": "dadjokes:aBLlxn4edeE0muKsp9fj",
-                },
-                body: JSON.stringify({
+            const response = await axios.post(
+                `${apiUrl}/users`,
+                {
                     username: email,
                     email: email,
                     password: password,
                     authorities: [{ authority: "USER" }],
-                }),
-            });
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-Api-Key": apiKey,
+                    },
+                }
+            );
 
-            const text = await response.text();
-            let responseData;
-
-            try {
-                responseData = JSON.parse(text);
-            } catch {
-                responseData = text;
-            }
-            console.log("Server response:", responseData);
-
-            if (response.ok && responseData.id) {
-                console.log("Registratie succesvol! Doorsturen naar login...");
-                navigate("/login");
-            } else {
-                throw new Error(responseData.message || "Registratie mislukt");
-            }
+            console.log("Registratie succesvol!", response.data);
             navigate("/login");
-
         } catch (error) {
-            console.error("Fout bij registreren:", error.message);
-            setError("Registratie mislukt, probeer opnieuw.");
+            console.error("Fout bij registreren:", error.response?.data || error.message);
+            setError("Registratie mislukt. Probeer opnieuw.");
         }
     };
 
     return (
         <div>
-            <h1>Register Page 🚀</h1>
+            <h1>Registreer 🚀</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="email"
@@ -88,7 +66,7 @@ const RegistrationPage = () => {
                 />
                 <input
                     type="password"
-                    placeholder="Wachtwoord"
+                    placeholder="Wachtwoord (min. 8 tekens)"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />

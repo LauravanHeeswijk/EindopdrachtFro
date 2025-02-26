@@ -1,22 +1,37 @@
-import React from 'react';
-import { useData } from "../../context/DataContext.jsx";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const FavoriteList = () => {
-    const { favorites } = useData();
+    const [favorites, setFavorites] = useState([]);
+    const apiUrl = import.meta.env.VITE_API_URL;
+    const token = localStorage.getItem("token");
+    const username = "testuser";
 
-    if (favorites.length === 0) {
-        return <p> Je hebt nog geen favoriete grap! </p>
-    }
+    useEffect(() => {
+        const fetchFavorites = async () => {
+            try {
+                const response = await axios.get(`${apiUrl}/users/${username}/info`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+
+                setFavorites(response.data.info ? response.data.info.split("\n") : []);
+            } catch (error) {
+                console.error("Fout bij ophalen favorieten:", error);
+            }
+        };
+
+        fetchFavorites();
+    }, []);
 
     return (
         <div>
-            <H2>Favorieten grappen!</H2>
+            <h2>Mijn Favoriete Grappen</h2>
             <ul>
-                {favorites.map((joke) => (
-                    <li key={joke.id}>
-                        {joke.setup} - {joke.punchline}
-                    </li>
-                ))}
+                {favorites.length > 0 ? favorites.map((joke, index) => (
+                    <li key={index}>{joke}</li>
+                )) : (
+                    <p>...</p>
+                )}
             </ul>
         </div>
     );
