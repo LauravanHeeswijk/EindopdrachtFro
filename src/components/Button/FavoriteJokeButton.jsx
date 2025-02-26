@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 const FavoriteJokeButton = ({ joke }) => {
     const apiKey = import.meta.env.VITE_API_KEY;
@@ -10,28 +11,24 @@ const FavoriteJokeButton = ({ joke }) => {
             return;
         }
         try {
-            const response = await fetch(apiUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-Api-Key": apiKey,
-                },
-                body: JSON.stringify({ joke }),
-            });
+            const response = await axios.post(`${apiUrl}/favorieten`,
+                { joke },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-Api-Key": apiKey,
+                    },
+                }
+            );
 
-            if (!response.ok) {
-                throw new Error("Fout bij opslaan in favorieten");
-            }
 
-            console.log("Grap opgeslagen als favoriet!");
+            console.log("Grap opgeslagen als favoriet!", response.data);
         } catch (error) {
-            console.error("Er ging iets mis:", error);
+            console.error("Fout bij opslaan in favorieten:", error);
         }
     };
 
-    return <button onClick={saveFavoriteJoke} disabled={!joke}>
-        Favoriet
-    </button>;
+    return <button onClick={saveFavoriteJoke}>Favoriet</button>;
 };
 
 export default FavoriteJokeButton;

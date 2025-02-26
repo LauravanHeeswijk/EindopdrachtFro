@@ -1,16 +1,22 @@
 import React from "react";
+import { useState } from "react";
+import apiClient from "../../api/axiosClient";
 
 const JokeButton = ({ setJoke }) => {
+    const [loading, setLoading] = useState(false);
+
     const fetchJoke = async () => {
+        setLoading(true);
         try {
-            const response = await fetch("https://icanhazdadjoke.com/", {
+            const response = await apiClient.get("https://icanhazdadjoke.com/", {
                 headers: { Accept: "application/json" },
             });
-            const data = await response.json();
-            setJoke(data.joke);
+
+            setJoke(response.data.joke);
         } catch (error) {
             console.error("Fout bij ophalen grap:", error);
-            setJoke("Er is een fout opgetreden bij het ophalen van de grap.");
+        } finally {
+            setLoading(false);
         }
     };
 
