@@ -1,5 +1,5 @@
 const LoginRegistrationPage = () => {
-    return <h1>ALLE DAGEN HEEL DEDICATED 🚀</h1>;
+    return <h1>Dad Jokes!</h1>;
 };
 export default LoginRegistrationPage;
 
