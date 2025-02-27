@@ -11,25 +11,17 @@ const FavoriteJokeButton = ({ joke }) => {
             alert("Geen grap om op te slaan!");
             return;
         }
-
-        if (!token || !username) {
-            alert("Log eerst in om favorieten op te slaan.");
-            return;
-        }
-
         try {
             console.log("Huidige favorieten ophalen...");
             const response = await axios.get(`${apiUrl}/users/${username}/info`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
-            const huidigeFavorieten = response.data.info || "";
-            const nieuweFavorieten = huidigeFavorieten ? `${huidigeFavorieten}\n${joke}` : joke;
+            const updatedInfo = response.data.info ? `${response.data.info}\n${joke}` : joke;
 
-            console.log("Favoriet opslaan...");
             await axios.put(
                 `${apiUrl}/users/${username}`,
-                { info: nieuweFavorieten },
+                { info: joke },
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -37,14 +29,11 @@ const FavoriteJokeButton = ({ joke }) => {
                     },
                 }
             );
-
             alert("Grap toegevoegd aan favorieten!");
         } catch (error) {
-            console.error("Fout bij opslaan:", error.response?.data || error.message);
             alert("Er ging iets mis. Probeer opnieuw.");
         }
     };
-
     return <button onClick={saveFavoriteJoke}>Favoriet</button>;
 };
 
