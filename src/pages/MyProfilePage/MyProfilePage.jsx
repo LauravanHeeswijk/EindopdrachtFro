@@ -8,6 +8,11 @@ const MyProfilePage = () => {
     const [city, setCity] = useState('');
     const [instagram, setInstagram] = useState('');
 
+    useEffect(() => {
+        setUsername(localStorage.getItem("username") || "");
+        setToken(localStorage.getItem("token") || "");
+    }, []);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -20,7 +25,7 @@ const MyProfilePage = () => {
         };
 
         try {
-            await axios.post("https://api.datavortex.nl/dadjokes/users", data);
+            await axios.put("https://api.datavortex.nl/dadjokes/users", data);
             alert("Profiel opgeslagen!");
         } catch (error) {
             console.error("Fout:", error);

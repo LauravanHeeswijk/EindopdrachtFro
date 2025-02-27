@@ -21,8 +21,7 @@ const LoginPage = () => {
             });
 
             const token = response.data.jwt;
-            const username = email;
-
+            const username = response.data.username;
 
             if (!token || !username) {
                 throw new Error("Geen token of username ontvangen van de server.");
@@ -30,14 +29,16 @@ const LoginPage = () => {
 
             localStorage.setItem("token", token);
             localStorage.setItem("username", username);
-            console.log("Ingelogd als:", username);
+            localStorage.setItem("email", email);
 
+            console.log("Ingelogd als:", username);
             navigate("/homepage");
         } catch (error) {
             console.error("Fout bij inloggen:", error.response?.data || error.message);
             setError("Inloggen mislukt, controleer je gegevens en probeer opnieuw.");
         }
     };
+
 
     return (
         <div>
