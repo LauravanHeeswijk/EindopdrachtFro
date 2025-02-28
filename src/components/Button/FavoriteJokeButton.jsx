@@ -13,7 +13,7 @@ const FavoriteJokeButton = ({ joke }) => {
         }
         try {
             console.log("Huidige favorieten ophalen...");
-            const response = await axios.get(`${apiUrl}/users/${username}/info`, {
+            const response = await axios.get(`https://api.datavortex.nl/dadjokes/users/${username}/info`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 

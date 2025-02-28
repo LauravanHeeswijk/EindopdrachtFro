@@ -20,8 +20,10 @@ const LoginPage = () => {
                 password: password,
             });
 
+            console.log("API Response:", response.data);
+
             const token = response.data.jwt;
-            const username = response.data.username;
+            const username = email;
 
             if (!token || !username) {
                 throw new Error("Geen token of username ontvangen van de server.");
