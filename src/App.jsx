@@ -32,6 +32,7 @@ const AppContent = () => {
                 {/* Openbare routes */}
                 <Route path="/" element={<HomePage />} />
                 <Route path="/homepage" element={<HomePage />} />
+                <Route path="/login-registration" element={<LoginRegistrationPage />} />
                 <Route path="/registration" element={<RegistrationPage />} />
                 <Route path="/login" element={<LoginPage />} />
 
