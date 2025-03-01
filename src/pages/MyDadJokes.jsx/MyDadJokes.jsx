@@ -1,5 +1,5 @@
 import React from "react";
-import FavoriteList from "../../components/FavoriteList/FavoriteList";
+import JokeSwiper from "../../components/Swiper/Swiper.jsx";
 
 const MyDadJokesPage = () => {
     const storedJokes = JSON.parse(localStorage.getItem("favoriteJokes")) || [];
@@ -7,13 +7,11 @@ const MyDadJokesPage = () => {
     return (
         <div>
             <h2>Mijn Favoriete Grappen</h2>
-            <ul>
-                {storedJokes.length > 0 ? (
-                    storedJokes.map((joke, index) => <li key={index}>{joke}</li>)
-                ) : (
-                    <p>Je hebt nog geen favoriete grappen opgeslagen.</p>
-                )}
-            </ul>
+            {storedJokes.length > 0 ? (
+                <JokeSwiper jokes={storedJokes}/>
+            ) : (
+                <p>Je hebt nog geen favorieten toegevoegd!</p>
+            )}
         </div>
     );
 };
