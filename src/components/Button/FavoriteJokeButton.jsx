@@ -1,4 +1,5 @@
 import React from "react";
+import "./FavoriteJokeButton.css";
 
 const FavoriteJokeButton = ({ joke }) => {
     const saveFavoriteJoke = () => {

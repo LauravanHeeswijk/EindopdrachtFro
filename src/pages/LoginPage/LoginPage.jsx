@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./LoginPage.css";
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -23,7 +24,6 @@ const LoginPage = () => {
             const token = response.data.jwt;
             const username = email;
 
-
             if (!token || !username) {
                 throw new Error("Geen token of username ontvangen van de server.");
             }
@@ -40,27 +40,28 @@ const LoginPage = () => {
     };
 
     return (
-        <div>
-            <h1>Login 🚀</h1>
-            <form onSubmit={handleSubmit}>
-
-                <input
-                    type="email"
-                    placeholder="E-mail"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-
-                <input
-                    type="password"
-                    placeholder="Wachtwoord"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit">Login</button>
-
-            </form>
-            {error && <p style={{ color: "red" }}>{error}</p>}
+        <div className="login-page-container">
+            <div className="login-page">
+                <h1>Zo goed, dat ze slecht zijn</h1>
+                <form className="login-form" onSubmit={handleSubmit}>
+                    <input
+                        type="email"
+                        placeholder="E-mail"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="input-field"
+                    />
+                    <input
+                        type="password"
+                        placeholder="Wachtwoord"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="input-field"
+                    />
+                    <button type="submit" className="nav-button">Login</button>
+                </form>
+                {error && <p className="error-message">{error}</p>}
+            </div>
         </div>
     );
 };

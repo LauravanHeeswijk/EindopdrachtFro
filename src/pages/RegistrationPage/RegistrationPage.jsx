@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./RegistrationPage.css"; // Zorg ervoor dat de CSS correct gekoppeld is
 
 const RegistrationPage = () => {
     const [email, setEmail] = useState("");
@@ -56,32 +57,36 @@ const RegistrationPage = () => {
     };
 
     return (
-        <div>
+        <div className="registration-page">
             <h1>Registreer 🚀</h1>
-            <form onSubmit={handleSubmit}>
+            <form className="registration-form" onSubmit={handleSubmit}>
                 <input
                     type="email"
                     placeholder="E-mail"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    className="input-field"
                 />
                 <input
                     type="password"
                     placeholder="Wachtwoord (min. 8 tekens)"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    className="input-field"
                 />
                 <input
                     type="password"
                     placeholder="Bevestig wachtwoord"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
+                    className="input-field"
                 />
-                <button type="submit">Registreren</button>
+                <button type="submit" className="nav-button">Registreren</button>
             </form>
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p className="error-message">{error}</p>}
         </div>
     );
 };
 
 export default RegistrationPage;
+
