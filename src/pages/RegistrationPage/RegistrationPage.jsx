@@ -36,6 +36,7 @@ const RegistrationPage = () => {
                     username: email,
                     email: email,
                     password: password,
+                    info: "default info",
                     authorities: [{ authority: "USER" }],
                 },
                 {
