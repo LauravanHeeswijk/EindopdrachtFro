@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./LoginPage.css";
@@ -43,8 +43,8 @@ const LoginPage = () => {
     return (
         <div className="login-page-container">
             <div className="login-page">
-                <h1>Zo goed, dat ze slecht zijn</h1>
                 <img src={Dadjoke} alt="Dad joke" className="dadjoke-image"/>
+                <p className="subtitle">“Zo goed dat ze slecht zijn”</p>
                 <form className="login-form" onSubmit={handleSubmit}>
                     <input
                         type="email"
