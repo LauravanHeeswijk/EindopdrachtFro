@@ -1,3 +1,7 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .login-registration-container {
     display: flex;
     flex-direction: column;
@@ -21,22 +25,17 @@
 
 .login-registration-container .dadjoke-image {
     width: 150px;
-    margin-top: 80px;
+    margin-top: 150px;
     margin-bottom: 10px;
 }
 
-.login-registration-container h1 {
-    font-size: 24px;
-    margin: 10px 0;
-}
-
 .login-registration-container .subtitle {
-    font-style: italic;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: bolder;
     margin-bottom: 30px;
     text-align: center;
 }
-/* Basis vorm van de knoppen */
+
 .login-registration-container .nav-button {
     padding: 12px 24px;
     border: none;
@@ -48,22 +47,18 @@
     margin-bottom: 10px;
 }
 
-/* Zwarte knop */
 .login-registration-container .black-button {
     background-color: black;
     color: white;
 }
 
-/* Lichtgrijze knop */
 .login-registration-container .light-button {
     background-color: #f2f2f2;
     color: black;
 }
 
-/* Centrerende wrapper */
 .login-registration-container .button-group {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
 }

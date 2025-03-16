@@ -21,13 +21,15 @@
 
 .registration-page .dadjoke-image {
     width: 150px;
-    margin-top: 80px;
-    margin-bottom: 20px;
+    margin-top: 150px;
+    margin-bottom: 10px;
 }
 
-.registration-page h1 {
-    font-size: 24px;
-    margin: 20px 0 10px 0;
+.registration-page .subtitle {
+    font-size: 30px;
+    font-weight: bolder;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 .registration-page .registration-form {
