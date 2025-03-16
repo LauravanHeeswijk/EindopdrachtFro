@@ -1,0 +1,69 @@
+.login-registration-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    background-color: white;
+    position: relative;
+}
+
+.login-registration-container{
+    content: '';
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(to right, #FF9500 0%, #5FDDFE 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.login-registration-container .dadjoke-image {
+    width: 150px;
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+
+.login-registration-container h1 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.login-registration-container .subtitle {
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+/* Basis vorm van de knoppen */
+.login-registration-container .nav-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 180px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Zwarte knop */
+.login-registration-container .black-button {
+    background-color: black;
+    color: white;
+}
+
+/* Lichtgrijze knop */
+.login-registration-container .light-button {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+/* Centrerende wrapper */
+.login-registration-container .button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}

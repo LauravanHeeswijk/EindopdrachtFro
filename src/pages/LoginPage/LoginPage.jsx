@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./LoginPage.css";
+import Dadjoke from "../../assets/Dadjoke.png";
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -43,6 +44,7 @@ const LoginPage = () => {
         <div className="login-page-container">
             <div className="login-page">
                 <h1>Zo goed, dat ze slecht zijn</h1>
+                <img src={Dadjoke} alt="Dad joke" className="dadjoke-image"/>
                 <form className="login-form" onSubmit={handleSubmit}>
                     <input
                         type="email"

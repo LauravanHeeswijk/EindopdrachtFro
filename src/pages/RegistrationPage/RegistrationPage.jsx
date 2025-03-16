@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./RegistrationPage.css"; // Zorg ervoor dat de CSS correct gekoppeld is
+import "./RegistrationPage.css";
+import Dadjoke from "../../assets/Dadjoke.png";
+
 
 const RegistrationPage = () => {
     const [email, setEmail] = useState("");
@@ -59,6 +61,7 @@ const RegistrationPage = () => {
     return (
         <div className="registration-page">
             <h1>Registreer 🚀</h1>
+            <img src={Dadjoke} alt="Dad joke" className="dadjoke-image"/>
             <form className="registration-form" onSubmit={handleSubmit}>
                 <input
                     type="email"

@@ -1,15 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./NavButton.css";
+import "./NavButton.jsx";
 
-const NavButton = ({ text, path, isPrimary }) => {
-    const navigate = useNavigate();
+    const NavButton = ({ text, path, className }) => {
+        const navigate = useNavigate();
 
-    return (
-        <button className={isPrimary ? "primary-button" : "secondary-button"} onClick={() => navigate(path)}>
-            {text}
-        </button>
-    );
-};
+        return (
+            <button className={className} onClick={() => navigate(path)}>
+                {text}
+            </button>
+        );
+    };
 
 export default NavButton;
