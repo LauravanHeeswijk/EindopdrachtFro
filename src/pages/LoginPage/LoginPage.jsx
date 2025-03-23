@@ -42,6 +42,7 @@ const LoginPage = () => {
 
     return (
         <div className="login-page-container">
+            <div className="gradient-background"></div>
             <div className="login-page">
                 <img src={Dadjoke} alt="Dad joke" className="dadjoke-image"/>
                 <p className="subtitle">“Zo goed dat ze slecht zijn”</p>

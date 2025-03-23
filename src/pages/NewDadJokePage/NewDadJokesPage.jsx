@@ -16,7 +16,7 @@ function NewDadJokePage() {
     }
 
     return (
-        <div className="new-dad-joke-page">
+        <div className="new-dad-joke-page-container">
             <PageLayout
                 text="VOEG EEN DAD JOKE TOE!"
                 buttonText="NEW DAD JOKE"
@@ -35,9 +35,7 @@ function NewDadJokePage() {
                 )}
             </PageLayout>
         </div>
-    );
+);
 }
 
 export default NewDadJokePage;
-
-

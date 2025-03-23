@@ -1,3 +1,19 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.new-dad-joke-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
 .joke-section {
     background-color: #F6F5F4;
     padding: 25px;
@@ -9,24 +25,4 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-}
-
-.joke-section h3 {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.joke-section p {
-    margin: 1px;
-    text-align: center;
-    max-width: 400px;
-}
-
-.joke-button {
-    display: flex;
-    justify-content: center;
-}
-
-.joke-button:hover {
-    background-color: #333;
 }

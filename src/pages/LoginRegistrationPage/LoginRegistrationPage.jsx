@@ -8,10 +8,11 @@ const LoginRegistrationPage = () => {
     return (
 
         <div className="login-registration-container">
+            <div className="gradient-background"></div>
             <img src={Dadjoke} alt="Dad joke" className="dadjoke-image"/>
             <p className="subtitle">“Zo goed dat ze slecht zijn”</p>
             <div className="button-group">
-            <NavButton text="SIGN-UP" path="/registration" className="nav-button black-button"/>
+                <NavButton text="SIGN-UP" path="/registration" className="nav-button black-button"/>
                 <NavButton text="LOG-IN" path="/login" className="nav-button light-button"/>
             </div>
         </div>

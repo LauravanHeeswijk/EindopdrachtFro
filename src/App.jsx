@@ -12,14 +12,11 @@ import { DataProvider } from "./context/DataContext.jsx";
 import FavoriteList from "./components/FavoriteList/FavoriteList.jsx";
 import "./components/LoadingSpinner/LoadingSpinner.css";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
-import './App.css'; // <-- extra toevoegen als je daar styles zet
 
 const App = () => {
     return (
         <DataProvider>
-            <div className="app-wrapper">
                 <AppContent />
-            </div>
         </DataProvider>
     );
 };

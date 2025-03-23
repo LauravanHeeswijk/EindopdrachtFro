@@ -60,6 +60,7 @@ const RegistrationPage = () => {
 
     return (
         <div className="registration-page">
+
             <img src={Dadjoke} alt="Dad joke" className="dadjoke-image"/>
             <p className="subtitle">“Zo goed dat ze slecht zijn”</p>
             <form className="registration-form" onSubmit={handleSubmit}>
