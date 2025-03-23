@@ -9,8 +9,10 @@
 }
 
 .page-layout-image {
-    width: 180px;
+    width: 150px;
+    height: auto;
 }
+
 
 .page-layout-content {
     display: flex;
