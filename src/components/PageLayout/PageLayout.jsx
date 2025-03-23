@@ -10,7 +10,6 @@ const PageLayout = ({ text, buttonText, buttonAction, image, children }) => {
                 <button className="page-layout-button" onClick={buttonAction}>
                     {buttonText}
                 </button>
-                {/* Hier komt je extra content */}
                 {children}
             </div>
         </div>

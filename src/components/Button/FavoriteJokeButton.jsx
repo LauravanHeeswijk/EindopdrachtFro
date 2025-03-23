@@ -16,7 +16,8 @@ const FavoriteJokeButton = ({ joke }) => {
         alert("Grap toegevoegd aan favorieten!");
     };
 
-    return <button onClick={saveFavoriteJoke}>Favoriet</button>;
+    return <button className="favorite-button" onClick={saveFavoriteJoke}>FAVORIET</button>;
+
 };
 
 export default FavoriteJokeButton;

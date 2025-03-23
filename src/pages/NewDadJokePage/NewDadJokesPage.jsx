@@ -1,41 +1,43 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import JokeButton from "../../components/Button/JokeButton";
-import FavoriteJokeButton from "../../components/Button/FavoriteJokeButton";
 import PageLayout from "../../components/PageLayout/PageLayout";
+import FavoriteJokeButton from "../../components/Button/FavoriteJokeButton";
 import Smiley from "../../assets/Smiley.png";
+import "./NewDadJokesPage.css";
 
+function NewDadJokePage() {
+    const [joke, setJoke] = useState("");
 
-
-const NewDadJokePage = () => {
-    const [joke, setJoke] = useState(null);
-    const navigate = useNavigate();
+    async function getNewJoke() {
+        const response = await fetch("https://icanhazdadjoke.com/", {
+            headers: { Accept: "application/json" }
+        });
+        const data = await response.json();
+        setJoke(data.joke);
+    }
 
     return (
         <div className="new-dad-joke-page">
             <PageLayout
-                text="Voeg een Dad Joke toe!"
+                text="VOEG EEN DAD JOKE TOE!"
                 buttonText="NEW DAD JOKE"
-                buttonAction={() => setJoke(null)}
+                buttonAction={getNewJoke}
                 image={Smiley}
-            />
+            >
+                {joke && (
+                    <div className="joke-section">
+                        <h3>NEW DAD JOKE:</h3>
+                        <p>{joke}</p>
 
-            <div className="joke-button-section">
-                <JokeButton setJoke={setJoke} />
-            </div>
-
-            {joke && (
-                <div className="joke-section">
-                    <h3 className="joke-title">DAD JOKE:</h3>
-                    <p className="joke-text">{joke}</p>
-
-                    <div className="joke-buttons">
-                        <FavoriteJokeButton joke={joke} />
+                        <div className="joke-buttons">
+                            <FavoriteJokeButton joke={joke} />
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
+            </PageLayout>
         </div>
     );
-};
+}
 
 export default NewDadJokePage;
+
+

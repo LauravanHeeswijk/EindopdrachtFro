@@ -1,0 +1,32 @@
+.joke-section {
+    background-color: #F6F5F4;
+    padding: 25px;
+    border-radius: 20px;
+    width: 500px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.joke-section h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.joke-section p {
+    margin: 1px;
+    text-align: center;
+    max-width: 400px;
+}
+
+.joke-button {
+    display: flex;
+    justify-content: center;
+}
+
+.joke-button:hover {
+    background-color: #333;
+}
