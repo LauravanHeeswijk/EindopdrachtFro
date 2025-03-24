@@ -3,6 +3,7 @@ import PageLayout from "../../components/PageLayout/PageLayout";
 import FavoriteJokeButton from "../../components/Button/FavoriteJokeButton";
 import Smiley from "../../assets/Smiley.png";
 import "./NewDadJokesPage.css";
+import Gradientbar from "../../components/Gradientbar/Gradientbar.jsx";
 
 function NewDadJokePage() {
     const [joke, setJoke] = useState("");
@@ -17,6 +18,7 @@ function NewDadJokePage() {
 
     return (
         <div className="new-dad-joke-page-container">
+            <Gradientbar />
             <PageLayout
                 text="VOEG EEN DAD JOKE TOE!"
                 buttonText="NEW DAD JOKE"

@@ -2,15 +2,14 @@ import React from "react";
 import NavButton from "../../components/Button/NavButton.jsx";
 import "./LoginRegistrationPage.css";
 import Dadjoke from "../../assets/Dadjoke.png";
+import Gradientbar from "../../components/Gradientbar/Gradientbar.jsx";
 
 
 const LoginRegistrationPage = () => {
     return (
 
         <div className="login-registration-container">
-            <div className="gradient-background"></div>
-            <img src={Dadjoke} alt="Dad joke" className="dadjoke-image"/>
-            <p className="subtitle">“Zo goed dat ze slecht zijn”</p>
+            <Gradientbar />
             <div className="button-group">
                 <NavButton text="SIGN-UP" path="/registration" className="nav-button black-button"/>
                 <NavButton text="LOG-IN" path="/login" className="nav-button light-button"/>

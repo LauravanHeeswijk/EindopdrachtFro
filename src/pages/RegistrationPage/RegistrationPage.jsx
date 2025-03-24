@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./RegistrationPage.css";
 import Dadjoke from "../../assets/Dadjoke.png";
+import Gradientbar from "../../components/Gradientbar/Gradientbar";
 
 
 const RegistrationPage = () => {
@@ -60,7 +61,7 @@ const RegistrationPage = () => {
 
     return (
         <div className="registration-page">
-
+            <Gradientbar/>
             <img src={Dadjoke} alt="Dad joke" className="dadjoke-image"/>
             <p className="subtitle">“Zo goed dat ze slecht zijn”</p>
             <form className="registration-form" onSubmit={handleSubmit}>

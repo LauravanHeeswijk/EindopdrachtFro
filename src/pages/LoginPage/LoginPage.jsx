@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./LoginPage.css";
 import Dadjoke from "../../assets/Dadjoke.png";
+import Gradientbar from "../../components/Gradientbar/Gradientbar.jsx";
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -42,10 +43,9 @@ const LoginPage = () => {
 
     return (
         <div className="login-page-container">
-            <div className="gradient-background"></div>
+            <Gradientbar/>
+
             <div className="login-page">
-                <img src={Dadjoke} alt="Dad joke" className="dadjoke-image"/>
-                <p className="subtitle">“Zo goed dat ze slecht zijn”</p>
                 <form className="login-form" onSubmit={handleSubmit}>
                     <input
                         type="email"
