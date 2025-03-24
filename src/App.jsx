@@ -30,14 +30,13 @@ const AppContent = () => {
             {!noHeaderRoutes.includes(location.pathname) && <Header />}
 
             <Routes>
-                {/* Openbare routes */}
+
                 <Route path="/homepage" element={<HomePage />} />
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login-registration" element={<LoginRegistrationPage />} />
                 <Route path="/registration" element={<RegistrationPage />} />
                 <Route path="/login" element={<LoginPage />} />
 
-                {/*Beveiligde routes*/}
                 <Route element={<PrivateRoute />}>
                     <Route path="/new-dadjoke" element={<NewDadJokePage />} />
                     <Route path="/my-dadjokes" element={<MyDadJokesPage />} />

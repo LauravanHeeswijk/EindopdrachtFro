@@ -1,74 +1,42 @@
-/*body {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    font-family: Arial, Helvetica, sans-serif;*/
-/*    height: 100vh;*/
-/*    overflow: hidden;*/
-/*}*/
+.registration-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 15px;
+    width: 100%;
+}
 
-/*.registration-page {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    justify-content: flex-start;*/
-/*    min-height: 100vh;*/
-/*    position: relative;*/
-/*}*/
+.input-field {
+    width: 350px;
+    height: 30px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 14px;
+}
 
-/*.dadjoke-image {*/
-/*    width: 150px;*/
-/*    margin-top: 100px;*/
-/*    margin-bottom: 10px;*/
-/*}*/
+.nav-button {
+    width: 200px;
+    height: 45px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
 
-/*.subtitle {*/
-/*    font-size: 25px;*/
-/*    font-weight: bold;*/
-/*    text-align: center;*/
-/*    margin-bottom: 30px;*/
-/*    margin-top: 300px;*/
-/*}*/
-
-/*.registration-form {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    width: 100%;*/
-/*    margin-top: 10px;*/
-/*}*/
-
-/*.input-field {*/
-/*    padding: 12px;*/
-/*    margin-bottom: 12px;*/
-/*    border: 1px solid #ccc;*/
-/*    border-radius: 25px;*/
-/*    font-size: 16px;*/
-/*    text-align: center;*/
-/*    outline: none;*/
-/*    width: 90%;*/
-/*    max-width: 300px;*/
-/*}*/
-
-/*.input-field:focus {*/
-/*    border-color: #ffa500;*/
-/*}*/
-
-/*.nav-button {*/
-/*    padding: 12px 24px;*/
-/*    border: none;*/
-/*    border-radius: 25px;*/
-/*    background-color: black;*/
-/*    color: white;*/
-/*    font-size: 16px;*/
-/*    cursor: pointer;*/
-/*    width: 150px;*/
-/*    margin-top: 10px;*/
-/*}*/
-
-/*.error-message {*/
-/*    color: red;*/
-/*    margin-top: 10px;*/
-/*    font-size: 14px;*/
-/*    text-align: center;*/
-/*}*/
+.error-message {
+    color: red;
+    margin-top: 15px;
+    font-size: 14px;
+}

@@ -1,15 +1,42 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
+.page-layout-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 80px;
+    flex-wrap: wrap;
 }
 
-.homepage-container {
+.page-layout-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.page-layout-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    gap: 20px;
+}
+
+.page-layout-text {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.page-layout-button {
+    width: 170px;
+    height: 45px;
+    border: none;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.page-layout-button:hover {
+    opacity: 0.9;
 }

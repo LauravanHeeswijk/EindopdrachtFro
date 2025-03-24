@@ -1,52 +1,13 @@
-/*body {*/
-/*    font-family: Arial, Helvetica, sans-serif;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    overflow: hidden;*/
-/*}*/
+.login-registration-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-/*!*.login-registration-container {*!*/
-/*!*    display: flex;*!*/
-/*!*    flex-direction: column;*!*/
-/*!*    align-items: center;*!*/
-/*!*    justify-content: center;*!*/
-/*!*    height: 100vh;*!*/
-/*!*    position: relative;*!*/
-/*!*}*!*/
-
-/*.login-registration-container .subtitle {*/
-/*    font-size: 30px;*/
-/*    font-weight: bolder;*/
-/*    margin-bottom: 30px;*/
-/*    text-align: center;*/
-/*    z-index: 1;*/
-/*}*/
-
-/*.login-registration-container .nav-button {*/
-/*    padding: 12px 24px;*/
-/*    border: none;*/
-/*    border-radius: 25px;*/
-/*    font-size: 16px;*/
-/*    cursor: pointer;*/
-/*    width: 180px;*/
-/*    text-align: center;*/
-/*    margin-bottom: 10px;*/
-/*    z-index: 1;*/
-/*}*/
-
-/*.login-registration-container .black-button {*/
-/*    background-color: black;*/
-/*    color: white;*/
-/*}*/
-
-/*.login-registration-container .light-button {*/
-/*    background-color: #f2f2f2;*/
-/*    color: black;*/
-/*}*/
-
-/*.login-registration-container .button-group {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    z-index: 1;*/
-/*}*/
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 15px;
+}

@@ -1,58 +1,49 @@
-/*.login-page-container {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    justify-content: flex-start;*/
-/*    min-height: 100vh;*/
-/*    position: relative;*/
-/*}*/
+.login-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-/*.login-page {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    margin-top: 30px;*/
-/*}*/
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 
-/*.login-page-container .login-form {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    width: 100%;*/
-/*}*/
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 15px;
+}
 
-/*!*.login-page-container .input-field {*!*/
-/*!*    padding: 12px;*!*/
-/*!*    margin-bottom: 12px;*!*/
-/*!*    border: 1px solid #ccc;*!*/
-/*!*    border-radius: 25px;*!*/
-/*!*    font-size: 16px;*!*/
-/*!*    text-align: center;*!*/
-/*!*    outline: none;*!*/
-/*!*    width: 90%;*!*/
-/*!*    max-width: 300px;*!*/
-/*!*}*!*/
+.input-field {
+    width: 250px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 14px;
+}
 
-/*!*.login-page-container .input-field:focus {*!*/
-/*!*    border-color: #ffa500;*!*/
-/*!*}*!*/
+.nav-button {
+    width: 200px;
+    height: 45px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
 
-/*!*.login-page-container .nav-button {*!*/
-/*!*    padding: 12px 24px;*!*/
-/*!*    border: none;*!*/
-/*!*    border-radius: 25px;*!*/
-/*!*    margin-top: 10px;*!*/
-/*!*    background-color: #f2f2f2;*!*/
-/*!*    color: black;*!*/
-/*!*    font-size: 16px;*!*/
-/*!*    cursor: pointer;*!*/
-/*!*    width: 180px;*!*/
-/*!*    text-align: center;*!*/
-/*!*}*!*/
-
-/*!*.login-page-container .error-message {*!*/
-/*!*    color: red;*!*/
-/*!*    margin-top: 10px;*!*/
-/*!*    font-size: 14px;*!*/
-/*!*    text-align: center;*!*/
-/*!*}*!*/
+.error-message {
+    color: red;
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}

@@ -1,28 +1,22 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.new-dad-joke-page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-}
-
 .joke-section {
-    background-color: #F6F5F4;
-    padding: 25px;
-    border-radius: 20px;
-    width: 500px;
-    min-height: 200px;
+    margin-top: 40px;
+    text-align: center;
+    width: 600px;
+    height: 250px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+    justify-content: center;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.joke-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.joke-section p {
+    font-size: 16px;
 }

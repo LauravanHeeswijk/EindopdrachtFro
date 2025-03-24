@@ -7,9 +7,11 @@ const PageLayout = ({ text, buttonText, buttonAction, image, children }) => {
             <img src={image} alt="Dad Jokes" className="page-layout-image" />
             <div className="page-layout-content">
                 <h2 className="page-layout-text">{text}</h2>
-                <button className="page-layout-button" onClick={buttonAction}>
-                    {buttonText}
-                </button>
+                {buttonText && buttonAction && (
+                    <button className="page-layout-button" onClick={buttonAction}>
+                        {buttonText}
+                    </button>
+                )}
                 {children}
             </div>
         </div>

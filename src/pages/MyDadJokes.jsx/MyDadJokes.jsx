@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import JokeSwiper from "../../components/Swiper/Swiper.jsx";
-import "./MyDadJokes.css"
+import PageLayout from "../../components/PageLayout/PageLayout";
+import Laugh from "../../assets/Laugh.png";
+import "./MyDadJokes.css";
 
 const MyDadJokesPage = () => {
     const storedJokes = JSON.parse(localStorage.getItem("favoriteJokes")) || [];
+    const [showSwiper, setShowSwiper] = useState(false);
+
+    const handleShowJokes = () => {
+        setShowSwiper(true);
+    };
 
     return (
-        <div className={"my-dad-jokes-container"}>
-            <h2>Mijn Favoriete Grappen</h2>
-            {storedJokes.length > 0 ? (
-                <JokeSwiper jokes={storedJokes}/>
-            ) : (
-                <p>Je hebt nog geen favorieten toegevoegd!</p>
+        <div className="my-dad-jokes-container">
+            <PageLayout
+                image={Laugh}
+                text="BEKIJK AL JE FAVORIETE DAD JOKES!"
+                buttonText="FAVORIETE 👇🏽"
+                buttonAction={handleShowJokes}
+            />
+
+            {showSwiper && (
+                <>
+                    {storedJokes.length > 0 ? (
+                        <JokeSwiper jokes={storedJokes} />
+                    ) : (
+                        <p className="no-favorites-message">Je hebt nog geen favorieten toegevoegd!</p>
+                    )}
+                </>
             )}
         </div>
     );

@@ -18,7 +18,6 @@ function NewDadJokePage() {
 
     return (
         <div className="new-dad-joke-page-container">
-            <Gradientbar />
             <PageLayout
                 text="VOEG EEN DAD JOKE TOE!"
                 buttonText="NEW DAD JOKE"
