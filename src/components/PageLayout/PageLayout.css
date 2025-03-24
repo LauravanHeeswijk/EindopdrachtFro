@@ -2,41 +2,48 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
     margin-top: 80px;
     flex-wrap: wrap;
+    gap: 80px; /* Meer ruimte tussen image & tekst */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 80px 20px;
 }
 
 .page-layout-image {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     object-fit: contain;
+    flex-shrink: 0; /* voorkomt dat hij kleiner wordt */
 }
 
 .page-layout-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-}
-
-.page-layout-text {
-    font-size: 24px;
-    font-weight: bold;
+    gap: 25px;
     text-align: center;
 }
 
+.page-layout-text {
+    font-size: 26px;
+    font-weight: bold;
+    max-width: 500px;
+}
+
 .page-layout-button {
-    width: 170px;
-    height: 45px;
+    width: 180px;
+    height: 50px;
     border: none;
     border-radius: 25px;
     background-color: black;
     color: white;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .page-layout-button:hover {
-    opacity: 0.9;
+    opacity: 0.85;
 }

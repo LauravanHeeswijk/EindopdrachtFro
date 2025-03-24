@@ -1,0 +1,22 @@
+.joke-section {
+    margin-top: 40px;
+    text-align: center;
+    width: 600px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.joke-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.joke-section p {
+    font-size: 16px;
+}

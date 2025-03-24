@@ -1,0 +1,28 @@
+.swiper {
+    width: 90%;
+    max-width: 1000px;
+    padding: 40px 0;
+}
+
+.swiper-slide {
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: black;
+}
+
+.swiper-pagination-bullet {
+    background-color: black;
+}

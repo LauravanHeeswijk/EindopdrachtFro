@@ -1,0 +1,33 @@
+.header-container {
+    position: relative;
+    width: 100%;
+    height: 350px; /* Verhoogd van 300px naar 350px voor extra ruimte */
+}
+
+.gradient-bar {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(to right, #FF9500 0%, #5FDDFE 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 130px; /* Dit was 80px → nu veel meer ruimte */
+}
+
+.dadjoke-image {
+    width: 200px;
+}
+
+.subtitle {
+    margin-top: 15px;
+    font-size: 24px;
+    font-weight: bolder;
+    text-align: center;
+}
