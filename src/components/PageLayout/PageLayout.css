@@ -4,7 +4,7 @@
     justify-content: center;
     margin-top: 80px;
     flex-wrap: wrap;
-    gap: 80px; /* Meer ruimte tussen image & tekst */
+    gap: 80px;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
@@ -15,7 +15,7 @@
     width: 250px;
     height: 250px;
     object-fit: contain;
-    flex-shrink: 0; /* voorkomt dat hij kleiner wordt */
+    flex-shrink: 0;
 }
 
 .page-layout-content {

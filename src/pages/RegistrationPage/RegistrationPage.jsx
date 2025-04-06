@@ -54,8 +54,12 @@ const RegistrationPage = () => {
             console.log("Registratie succesvol!", response.data);
             navigate("/login");
         } catch (error) {
-            console.error("Fout bij registreren:", error.response?.data || error.message);
-            setError("Registratie mislukt. Probeer opnieuw.");
+            console.error("Fout bij registreren:", error);
+            if (!error.response) {
+                setError("Oeps, geen verbinding! Controleer je internet of probeer het later opnieuw.");
+            } else {
+                setError("Registratie mislukt. Controleer je gegevens en probeer opnieuw.");
+            }
         }
     };
 

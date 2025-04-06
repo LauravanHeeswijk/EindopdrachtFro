@@ -3,7 +3,6 @@ import PageLayout from "../../components/PageLayout/PageLayout";
 import FavoriteJokeButton from "../../components/Button/FavoriteJokeButton";
 import Smiley from "../../assets/Smiley.png";
 import "./NewDadJokesPage.css";
-import Gradientbar from "../../components/Gradientbar/Gradientbar.jsx";
 
 function NewDadJokePage() {
     const [joke, setJoke] = useState("");
@@ -24,6 +23,7 @@ function NewDadJokePage() {
                 buttonAction={getNewJoke}
                 image={Smiley}
             >
+            </PageLayout>
                 {joke && (
                     <div className="joke-section">
                         <h3>NEW DAD JOKE:</h3>
@@ -34,7 +34,6 @@ function NewDadJokePage() {
                         </div>
                     </div>
                 )}
-            </PageLayout>
         </div>
 );
 }

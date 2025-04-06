@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./LoginPage.css";
-import Dadjoke from "../../assets/Dadjoke.png";
 import Gradientbar from "../../components/Gradientbar/Gradientbar.jsx";
 
 const LoginPage = () => {
@@ -36,8 +35,15 @@ const LoginPage = () => {
 
             navigate("/homepage");
         } catch (error) {
-            console.error("Fout bij inloggen:", error.response?.data || error.message);
-            setError("Inloggen mislukt, controleer je gegevens en probeer opnieuw.");
+            console.error("Fout bij inloggen:", error);
+
+            if (!error.response) {
+                setError("Oeps, geen verbinding! Controleer je verbinding of probeer het later opnieuw.");
+            } else if (error.response.status === 401) {
+                setError("Wachtwoord onjuist.");
+            } else {
+                setError("Inloggen mislukt. Controleer je gegevens en probeer opnieuw.");
+            }
         }
     };
 
