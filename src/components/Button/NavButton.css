@@ -1,0 +1,24 @@
+.nav-button {
+    width: 200px;
+    height: 45px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-button.black-button {
+    background-color: black;
+    color: white;
+}
+
+.nav-button.light-button {
+    background-color: #f2f2f2;
+    color: black;
+}

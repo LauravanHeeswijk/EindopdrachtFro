@@ -1,5 +1,20 @@
-const LoginRegistrationPage = () => {
-    return <h1>ALLE DAGEN HEEL DEDICATED 🚀</h1>;
-};
-export default LoginRegistrationPage;
+import React from "react";
+import NavButton from "../../components/Button/NavButton.jsx";
+import "./LoginRegistrationPage.css";
+import Gradientbar from "../../components/Gradientbar/Gradientbar.jsx";
 
+
+const LoginRegistrationPage = () => {
+    return (
+
+        <div className="login-registration-container">
+            <Gradientbar />
+            <div className="button-group">
+                <NavButton text="SIGN-UP" path="/registration" className="nav-button black-button"/>
+                <NavButton text="LOG-IN" path="/login" className="nav-button light-button"/>
+            </div>
+        </div>
+    );
+};
+
+export default LoginRegistrationPage;
