@@ -1,7 +1,6 @@
 import React from "react";
 import NavButton from "../../components/Button/NavButton.jsx";
 import "./LoginRegistrationPage.css";
-import Dadjoke from "../../assets/Dadjoke.png";
 import Gradientbar from "../../components/Gradientbar/Gradientbar.jsx";
 
 

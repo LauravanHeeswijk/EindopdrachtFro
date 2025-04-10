@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./RegistrationPage.css";
-import Dadjoke from "../../assets/Dadjoke.png";
 import Gradientbar from "../../components/Gradientbar/Gradientbar";
 
 
